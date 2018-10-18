@@ -6,16 +6,20 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.sql.DataSource;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.jade.sbp.domain.User;
+import com.jade.sbp.mapper.UserMapper;
 
 
 @RunWith(SpringRunner.class)
@@ -24,7 +28,17 @@ public class SbpApplicationTests {
 	@Autowired
 	private DataSource ds;
 	
+	@Autowired
+	private UserMapper mapper;
+	
 	@Test
+	public void testUserMapper() throws Exception {
+		User user = mapper.getLoginInfo("user1");
+		System.out.println("User>>" + user);
+		assertEquals("김일수", user.getUname());
+	}
+	
+	@Ignore @Test
 	public void testDataSource() throws Exception {
 		System.out.println("DS=" + ds);
 
