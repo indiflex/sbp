@@ -8,6 +8,12 @@
 	<h1>Thymeleaf Test Page</h1>
 	<h3 th:text="${uname}"></h3>
 	
+	<p th:text="'Name: ' + ${name}"></p>
+    <form method="POST" action="korean">
+        <input type="text" name="name" value="세종대왕" />
+        <button type="submit">KOREAN</button>
+    </form>
+	
 	<div th:if="${user}">
 		<div th:text="${user}"></div>
 		<div th:object="${user}">Thymeleaf Test : <span th:text="|*{uname}|"/></div>
