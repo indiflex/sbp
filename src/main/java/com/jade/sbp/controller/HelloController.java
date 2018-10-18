@@ -3,6 +3,7 @@ package com.jade.sbp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,10 +21,10 @@ public class HelloController {
 		return "Hello 스프링부트!!";
 	}
 	
-	@RequestMapping(value = "/helloUser", method = RequestMethod.GET)
-	public ResponseEntity<User> helloJson() {
+	@RequestMapping(value = "/helloUser/{uid}", method = RequestMethod.GET)
+	public ResponseEntity<User> helloJson(@PathVariable String uid) {
 		try {
-			User user = mapper.getLoginInfo("user1");
+			User user = mapper.getLoginInfo(uid);
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
