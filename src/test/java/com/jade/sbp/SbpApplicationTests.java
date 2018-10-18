@@ -36,6 +36,9 @@ public class SbpApplicationTests {
 		User user = mapper.getLoginInfo("user1");
 		System.out.println("User>>" + user);
 		assertEquals("김일수", user.getUname());
+		
+		String uname = mapper.getUname("user2");
+		assertEquals("김이수", uname);
 	}
 	
 	@Ignore @Test
