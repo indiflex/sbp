@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.MvcResult;
 public class HelloControllerTest {
 	@Autowired
 	MockMvc mock;
-
+	
 	@Test
 	public void testHello() throws Exception {
 		mock.perform(get("/hello"))
