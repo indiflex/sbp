@@ -7,5 +7,27 @@
 <body>
 	<h1>Thymeleaf Test Page</h1>
 	<h3 th:text="${uname}"></h3>
+	
+	<div th:if="${user}">
+		<div th:text="${user}"></div>
+		<div th:object="${user}">Thymeleaf Test : <span th:text="|*{uname}|"/></div>
+		<div th:text="${user.uname}"></div>
+	</div>
+	<div th:unless="${user}">
+	   <div>No User!!</div>
+	</div>
+	
+	<ul>
+	   <li th:each="data: ${users}" th:text="${data}"></li>
+	   <li th:each="data: ${users}" th:text="${data.uid} + '. ' + ${data.uname}"></li>
+	   <li th:each="data: ${users}" th:object="${data}">
+	       <span th:text="|*{uid}|"></span>
+	       <strong th:text="|*{uname}|"></strong>
+	   </li>
+	</ul>
+	
+	<a th:href="@{http://localhost:9090/hello}">HELLO</a>
+	
+	
 </body>
 </html>

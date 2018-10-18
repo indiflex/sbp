@@ -1,5 +1,7 @@
 package com.jade.sbp.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -10,4 +12,7 @@ public interface UserMapper {
 	public String getUname(@Param("uid") String uid) throws Exception;
 	
 	public User getLoginInfo(@Param("uid") String uid) throws Exception;
+
+	@Select("select * from User limit 100")
+	public List<User> getUsers();
 }
