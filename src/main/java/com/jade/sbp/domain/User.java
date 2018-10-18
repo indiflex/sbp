@@ -21,4 +21,8 @@ public class User {
 	private String loginip;
 	private Date lastlogin;
 	
+	public boolean equals(User u) {
+		return uid.equals(u.getUid());
+	}
+	
 }
