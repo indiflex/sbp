@@ -41,7 +41,7 @@ public class SbpApplicationTests {
 		assertEquals("김이수", uname);
 	}
 	
-	@Ignore @Test
+	@Test
 	public void testDataSource() throws Exception {
 		System.out.println("DS=" + ds);
 
