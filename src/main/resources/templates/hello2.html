@@ -59,7 +59,7 @@ $(document).ready(  function() {
         let msg = $('input#msg').val();
         console.log("mmmmmmmmmmmm>>", msg)
         if (isStomp)
-        	socket.send('/TTT', {}, JSON.stringify({id: 124, msg: msg}));
+        	socket.send('/TTT', {}, JSON.stringify({roomid: 'message', id: 124, msg: msg}));
         else
             socket.send(msg);
     });
